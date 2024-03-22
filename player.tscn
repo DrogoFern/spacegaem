@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxo2qf4xmecv7"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_y2t37"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yqago"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_huypk"]
+radius = 0.175
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8h832"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_y2t37")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.535, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_yqago")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.543453, 0.83944, 0, -0.83944, 0.543453, 0, 0.250417, -0.144796)
+mesh = SubResource("SphereMesh_huypk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8h832")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.870356, 0.492424, 0, -0.492424, 0.870356, 0, 2.94133, 4.63192)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
